@@ -60,7 +60,7 @@
         <img src="/static/logo.png" alt="Logo">
         <a href="/">Главная</a>
         <a href="/docs">Документация</a>
-        <a href="/faq">FaQ</a>
+        <a href="/examples">Примеры</a>
         <a href="/dbcalc">Калькулятор RU</a>
     </div>
     <header>
