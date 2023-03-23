@@ -7,6 +7,11 @@ def send_static(filename):
 def home():
     return template('home')
 
+
+@route('/css/<filename>')
+def server_static(filename):
+    return static_file(filename, root='./css')
+
 @route('/dbcalc')
 def dbcalc():
     result = None

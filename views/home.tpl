@@ -2,58 +2,7 @@
 <html>
 <head>
     <title>Home Page</title>
-    <style>
-        /* Top bar styles */
-        #topbar {
-          background-color: #333;
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 10px;
-        }
-
-        #topbar img {
-          max-height: 50px;
-        }
-
-        #topbar a {
-          color: white;
-          margin-left: 20px;
-          text-decoration: none;
-        }
-
-        #topbar a:hover {
-          text-decoration: underline;
-        }
-
-        /* Body styles */
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: sans-serif;
-        }
-
-        h1 {
-          margin-top: 50px;
-          text-align: center;
-          font-size: 36px;
-        }
-
-        p {
-          text-align: center;
-          font-size: 24px;
-        }
-        .column {
-    float: left;
-    width: 50%;
-}
-.monkey {
-  height: 70px;
-  width: 100px;
-  -o-object-fit: contain;
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
 </head>
 <body>
     <div id="topbar">

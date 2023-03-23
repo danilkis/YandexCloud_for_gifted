@@ -2,67 +2,7 @@
 <html>
 <head>
     <title>Примеры работы</title>
-    <style>
-    /* Top bar styles */
-#topbar {
-  background-color: #333;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  font-family: 'Roboto', sans-serif;
-}
-
-#topbar img {
-  max-height: 50px;
-}
-
-#topbar a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
-
-#topbar a:hover {
-  text-decoration: underline;
-  opacity: 0.7;
-}
-
-/* Body styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-}
-
-h1 {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 36px;
-}
-
-p {
-      text-align: justify;
-      font-size: 24px;
-      line-height: 1.5;
-      margin: 20px;
-      padding: 10px;
-    }
-    code {
-  font-family: 'Roboto', sans-serif;
-  font-style: italic;
-  margin: 10px;
-  padding: 10px;
-}
-li {
-  font-family: 'Roboto', sans-serif;
-  margin: 10px;
-  padding: 10px;
-}
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/examples.css">
 </head>
 <body>
     <div id="topbar">
