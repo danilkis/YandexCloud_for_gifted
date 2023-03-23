@@ -3,57 +3,65 @@
 <head>
     <title>Примеры работы</title>
     <style>
+    /* Top bar styles */
+#topbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+}
 
-        /* Top bar styles */
-        #topbar {
-          background-color: #333;
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 10px;
-        }
+#topbar img {
+  max-height: 50px;
+}
 
-        #topbar img {
-          max-height: 50px;
-        }
+#topbar a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
 
-        #topbar a {
-          color: white;
-          margin-left: 20px;
-          text-decoration: none;
-        }
+#topbar a:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
 
-        #topbar a:hover {
-          text-decoration: underline;
-        }
+/* Body styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
 
-        /* Body styles */
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: sans-serif;
-        }
+h1 {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 36px;
+}
 
-        h1 {
-          margin-top: 50px;
-          text-align: center;
-          font-size: 36px;
-        }
-        h2 {
-          margin-top: 50px;
-          text-align: center;
-          font-size: 28px;
-        }
-        h3 {
-          margin-top: 10px;
-          text-align: center;
-          font-size: 20px;
-        }
-        p {
-          text-align: center;
-          font-size: 24px;
-        }
+p {
+      text-align: justify;
+      font-size: 24px;
+      line-height: 1.5;
+      margin: 20px;
+      padding: 10px;
+    }
+    code {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  margin: 10px;
+  padding: 10px;
+}
+li {
+  font-family: 'Roboto', sans-serif;
+  margin: 10px;
+  padding: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -87,7 +95,7 @@ python3 ydb-python-sdk/examples/basic_example_v1/ -e grpc://localhost:2136 -d /l
 <li>Клиент YDB работает поверх драйвера YDB и отвечает за работу с сущностями и транзакциями.
 <li>Сессия YDB содержит информацию о выполняемых транзакциях и подготовленных запросах и содержится в контексте клиента YDB.
 <li>Фрагмент кода приложения для инициализации драйвера:</p>
-<code>def run(endpoint, database, path):
+<code id="Py_code">def run(endpoint, database, path):
     driver_config = ydb.DriverConfig(
         endpoint, database, credentials=ydb.construct_credentials_from_environ(),
         root_certificates=ydb.load_ydb_root_certificate(),
@@ -101,8 +109,17 @@ python3 ydb-python-sdk/examples/basic_example_v1/ -e grpc://localhost:2136 -d /l
             print(driver.discovery_debug_details())
             exit(1)</code>
             <p>Фрагмент кода приложения для создания сессии:</p>
-		    <code>session = driver.table_client.session().create()</code>
+		    <code id="Py_code2">session = driver.table_client.session().create()</code>
 		<p>Больше примеров на сайте</p>
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+  <script>
+    // JavaScript code to highlight the Python code within the <code> element
+    var code = document.getElementById('Py_code');
+    code.innerHTML = code.innerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    code.innerHTML = '<pre class="prettyprint lang-python">' + code.innerHTML + '</pre>';
+    PR.prettyPrint();
+  </script>
 	</main>
 </body>
 </html>
