@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-
+import form
 from bottle import route, run, template, static_file, request
 @route('/static/<filename:path>')
 def send_static(filename):
@@ -36,29 +36,5 @@ def do_calculation():
 def docs():
     return template('docs')
 # Run the web application
-@route('/', method='post')
-def my_form():
-    message = " "
-    # Получение полей ввода из формы
-    mail = request.forms.get('email')
-    name = request.forms.get('name')
-
-    # Проверка совпадения почты с паттерном
-    mail_check = re.match(r"[^@]+@[^@]+\.[^@]+", mail)
-
-    # Вывод ошибки при несовпадении
-    if not mail_check:
-        message = "Неверный email. Попробуйте еще раз"
-
-    # Вывод ошибки при не заполненных полях
-    if not name or not mail:
-        message = "Введите имя и почту!"
-
-    # Return a message with the user's name, email, and date
-    if mail and name and mail_check:
-        message = f"Спасибо, {name}! Новости будут приходить на {mail}"
-
-    # Вывод страницы с сообщением
-    return template('home.tpl', message=message)
 if __name__ == '__main__':
     run(host='localhost', port=8080, debug=True)
