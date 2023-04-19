@@ -24,7 +24,7 @@
 
     </p>
         <form action="/dbcalc" method="post">
-                <input name="num1" type="text" placeholder="Размер операции"/>
+                <input name="num1" type="text" placeholder="Размер операции (МБ)"/>
                 <input name="num2" type="text" placeholder="Размер скопированных данных"/>
                 <input type="submit" value="Calculate" />
             </form>

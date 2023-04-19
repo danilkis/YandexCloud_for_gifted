@@ -43,6 +43,41 @@
     float: left;
     width: 50%;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+input[type="text"],
+input[type="submit"] {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid #ccc; /* add grey border to input fields */
+}
+
+input[type="submit"] {
+  background-color: blue; /* make calculate button blue */
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #0066cc; /* darken calculate button on hover */
+  cursor: pointer;
+}
+#result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
 .monkey {
   height: 70px;
   width: 100px;
