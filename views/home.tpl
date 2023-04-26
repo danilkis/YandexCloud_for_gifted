@@ -26,6 +26,7 @@
 	<form action="/" method="post">
                 <input name="email" type="text" placeholder="Email"/>
                 <input name="name" type="text" placeholder="Имя"/>
+                <input name="questions" type="text" placeholder="Вопросы"/>
                 <input type="submit" value="Готово" />
             </form>
             <div id="message">
