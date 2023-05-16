@@ -18,9 +18,11 @@ def my_form():
     questions = request.forms.get('questions')
 
     # Проверка совпадения почты с паттерном
-    mail_check = re.match(r"[^@]+@[^@]+\.[^@]+", mail)
+    def is_valid_email(email):
+        pattern = r'''(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])'''
+        return re.match(pattern, email) is not None
     # Вывод ошибки при несовпадении
-    if not mail_check:
+    if not is_valid_email(mail):
         message = "Неверный email. Попробуйте еще раз"
     elif not re.search(r'[a-zA-Z]', questions) or re.match(r'^\d+$', questions) or len(questions) < 4:
         message = "Введите корректный вопрос!"
