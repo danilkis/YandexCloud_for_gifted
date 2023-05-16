@@ -47,3 +47,14 @@ def my_form():
     # Вывод страницы с сообщением
     #pdb.set_trace()
     return template('home.tpl', message=message)
+
+
+    def test_invalid_emails(self):
+        for email in self.list_mail_uncor:
+            with self.subTest(email=email):
+                self.assertFalse(is_valid_email(email))
+
+    def test_valid_emails(self):
+        for email in self.list_mail_cor:
+            with self.subTest(email=email):
+                self.assertTrue(is_valid_email(email))
