@@ -1,0 +1,22 @@
+[
+    {
+        "nickname": "JohnDoe",
+        "email": "johndoe@example.com",
+        "content": "Great product!"
+    },
+    {
+        "nickname": "JaneSmith",
+        "email": "janesmith@example.com",
+        "content": "Excellent service!"
+    },
+    {
+        "nickname": "Demo",
+        "email": "danyapancresnicov@gmail.com",
+        "content": "eeee"
+    },
+    {
+        "nickname": "Demo",
+        "email": "danyapancresnicov@gmail.com",
+        "content": "ss"
+    }
+]

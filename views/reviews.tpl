@@ -3,37 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/css/reviews.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Reviews</title>
 </head>
 <body>
-    <div id="topbar">
-        <img src="/static/logo.png" alt="Logo">
-        <a href="/">Главная</a>
-        <a href="/docs">Документация</a>
-        <a href="/examples">Примеры</a>
-        <a href="/dbcalc">Калькулятор RU</a>
-        <a href="/reviews">Отзывы</a>
+     <div class="back-button">
+        <a href="/"><i class="fas fa-angle-left"></i>Назад</a>
     </div>
-    <header>
-		<h1>Неофициальная документация Яндекс.Облака</h1>
-	</header>
-	<main>
-  <h1>Reviews</h1>
-  <ul>
-    {% for review in reviews %}
-      <li>
-        <h2>{{ review.title }}</h2>
-        <p>{{ review.body }}</p>
-        <p>Rating: {{ review.rating }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-  <form action="/add_review" method="post">
-    <input type="text" name="title" placeholder="Title">
-    <textarea name="body" rows="5" cols="50" placeholder="Body"></textarea>
-    <input type="number" name="rating" placeholder="Rating">
-    <input type="email" name="email" placeholder="Email">
-    <input type="submit" value="Add Review">
-  </form>
+
+     <h1>Отзывы</h1>
+
+    <div id="reviews">
+        % for review in reviews:
+            <div class="review-card">
+                <h3>{{ review['nickname'] }}</h3>
+                <p>{{ review['email'] }}</p>
+                <p>{{ review['content'] }}</p>
+            </div>
+        % end
+    </div>
+
+    <h2>Написать отзыв</h2>
+    <div class="message">{{ message }}</div>
+    <div class="form-container">
+        <form action="/add_review" method="post">
+            <label for="nickname">Никнейм</label>
+            <input type="text" id="nickname" name="nickname" required><br>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required><br>
+
+            <label for="review">Отзыв</label>
+            <input type="text" id="review" name="review" required><br>
+
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
 </body>
 </html>
