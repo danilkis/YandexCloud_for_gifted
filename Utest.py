@@ -5,7 +5,7 @@ class EmailValidationTestCase(unittest.TestCase):
         # Примеры неверных email
         self.list_mail_uncor = [
             "", "1", "m1@", "@mail", "example.com", "test@.com",
-            "test@mail.c", "test@@mail.com", "test@mail..com",
+            "test@mail.", "test@@mail.com", "test@mail..com",
             "test.@mail.com", "test@mail_com", "test@mail+com"
         ]
 

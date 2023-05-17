@@ -28,6 +28,9 @@ def dbcalc():
 @route('/examples')
 def faq():
     return template('examples')
+@route('/reviews')
+def reviews():
+    return template('reviews')
 @route('/dbcalc', method='POST')
 def do_calculation():
     num1 = float(request.forms.get('num1'))
