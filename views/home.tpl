@@ -8,10 +8,10 @@
     <div id="topbar">
         <img src="/static/logo.png" alt="Logo">
         <a href="/">Главная</a>
+        <a href="/reviews">Отзывы</a>
         <a href="/docs">Документация</a>
         <a href="/examples">Примеры</a>
         <a href="/dbcalc">Калькулятор RU</a>
-        <a href="/reviews">Отзывы</a>
     </div>
     <header>
 		<h1>Неофициальная документация Яндекс.Облака</h1>

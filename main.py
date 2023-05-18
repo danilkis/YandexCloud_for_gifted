@@ -1,6 +1,6 @@
 import json
 import bottle
-
+import re
 from bottle import route, run, template, static_file, request
 
 def load_reviews():
@@ -18,13 +18,11 @@ def send_static(filename):
 @route('/')
 def home():
     message = " "
-    return template('home', message=message)
+    return template('home.tpl', message=message)
 
 @route('/css/<filename>')
 def server_static(filename):
     return static_file(filename, root='./css')
-
-import re
 
 def is_valid_nickname(nickname):
     return bool(re.match(r'^[a-zA-Z0-9_-]{3,16}$', nickname))
@@ -42,24 +40,27 @@ def add_review():
 
     # Validate nickname using regex
     if not is_valid_nickname(nickname):
-        return template('reviews', reviews=reviews,
-                        message="Неправильный формат. Длинна от 3 до 16 символов и может содержать только буквы, цифры и _ -")
+        return template('reviews.tpl', reviews=reviews,
+                        message="Неправильный формат. Длина от 3 до 16 символов и может содержать только буквы, цифры и _ -")
 
-        # Validate email using regex
+    # Validate email using regex
     if not is_valid_email(email):
-        return template('reviews', reviews=reviews,
+        return template('reviews.tpl', reviews=reviews,
                         message="Неверный формат почты")
 
     reviews.append({'nickname': nickname, 'email': email, 'content': review})
     save_reviews(reviews)
     return bottle.redirect('/reviews')
 
-
 @route('/reviews')
 def reviews():
     message = ""
     reviews = load_reviews()
     return template('reviews', reviews=reviews, message=message)
+
+@route('/docs')
+def docs():
+    return template('docs.tpl')
 
 # Run the web application
 if __name__ == '__main__':
